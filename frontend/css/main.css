@@ -1,0 +1,70 @@
+@CHARSET "ISO-8859-1";
+
+body{
+	font-family: Roboto;
+	background: url('../img/background.png');
+}
+.no-padding{
+	padding:0 !important;
+}
+.wrapper{
+	background:#a6ffa6;
+}
+.center{
+	text-align: center;
+}
+h1{
+	font-family: Indie Flower;
+	font-size: 3.5em;
+}
+h2{
+	font-family: Indie Flower;
+}
+h3{
+	font-family: Indie Flower;
+}
+.welcometext p{
+	font-size:1.2em;
+}
+input{
+	margin-bottom:1em;
+}
+fieldset{
+	margin-bottom:1em;
+}
+/*fieldset p{
+	margin:0 1.5em 0 0.5em;
+}*/
+.personalform p{
+	display:inline;
+	margin-bottom:0;
+	
+}
+.slider{
+	width:100% !important;
+}
+.slider .slider-selection {
+	background: #BABABA;
+}
+.formitem{
+	height:10em;
+}
+.formitem h3{
+	margin-bottom:2em;
+}
+.personaldata, .nutritiondata{
+	padding-top:3em;
+	padding-bottom:3em;
+}
+.personaltext, .nutritiontext{
+	margin-bottom:1.5em;
+}
+input[value^="Dein Vorname..."] {background-color:#e8ffe8;}
+input[value^="Dein Nachname..."] {background-color:#e8ffe8;}
+
+.lactoseintolerant, .sex {
+    display: none;
+}
+input[type="radio"]:checked + i{
+   	color:white;
+}

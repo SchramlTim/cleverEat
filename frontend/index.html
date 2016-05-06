@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>cleverEat </title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Bootstrap Slider -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/7.0.2/bootstrap-slider.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/7.0.2/css/bootstrap-slider.min.css">
+
+<link href='https://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="css/main.css" type="text/css">
+<script src="js/app.js"></script>
+
+<body>
+<div class="wrapper col-md-8 col-md-offset-2">
+	<div class="header col-md-12">
+		<div class="titletext col-md-12 center"><h1>Generiere deinen individuellen Ernährungsplan!</h1></div>
+		<div class="welcometext col-md-12 center"><p>Gebe einfach deine Daten ein und lasse dir einen Ernährungsplan generieren, der deinen persönlichen Anforderungen und Wünschen entspricht.</p></div>
+	</div>
+	<div class="content col-md-12">
+		<div class="personaldata col-md-12"><!--  -->
+			<div class="personaltext col-md-12 center"><h2>Deine persönlichen Daten:</h2></div>
+			<div class="personalform col-md-12">
+				<form method="post" action="" class="col-md-12 no-padding">
+					<div class="formitem col-md-4">
+						<h3 class="col-md-12 center">Wie hei&szlig;t du?:</h3> 
+						<input type="text" class="col-md-6" name="firstname" value="Dein Vorname..." onfocus="this.select()"/><input type="text" class="col-md-6" name="lastname" value="Dein Nachname..." onfocus="this.select()"/>
+					</div>
+					<div class="formitem col-md-4">
+						<h3 class="col-md-12 center"> Wie viel wiegst du?:</h3> 
+						<input class="mySlider sliderWeight col-md-12" data-slider-id='ex1Slider' type="text" data-slider-min="30" data-slider-max="300" data-slider-step="1" data-slider-value="80"  name="weight"/>
+					</div>
+					<div class="formitem col-md-4">
+						<h3 class="col-md-12 center">Wie gro&szlig; bist du?:</h3> 
+						<input class="mySlider sliderHeight col-md-12" data-slider-id='ex1Slider' type="text" data-slider-min="50" data-slider-max="250" data-slider-step="1" data-slider-value="160"  name="height"/>
+					</div>
+					<div class="formitem col-md-4">
+						<h3 class="col-md-12 center">Welches Geschlecht hast du?:</h3> <fieldset class="col-md-12">
+												<input type="radio" class="sex" name="m" value="ja">
+												<i class="fa fa-male fa-3x col-md-6 center" aria-hidden="true"></i>
+												<input type="radio" class="sex" name="f" value="ja">
+												<i class="fa fa-female fa-3x col-md-6 center" aria-hidden="true"></i>
+						 
+					</div>
+					<div class="formitem col-md-4">
+						<h3 class="col-md-12">Wie alt bist du?</h3> 
+						<input class="mySlider sliderAge col-md-12" data-slider-id='ex1Slider' type="text" data-slider-min="16" data-slider-max="99" data-slider-step="1" data-slider-value="16"  name="age"/>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="nutritiondata col-md-12">
+			<div class="nutritiontext col-md-12 center"><h2>Deine Ernährung:</h2></div>
+			<div class="nutritionform col-md-12">
+				<form method="post" action="" class="col-md-12 no-padding">
+					<div class="formitem col-md-4">
+						<h3 class="col-md-12 center">Lebensmittel, die du nicht magst?</h3> <input type="text" class="col-md-12" name="negativfood"/>
+					</div>
+						<div class="formitem col-md-4">
+						<h3 class="col-md-12 center">Wie ern&auml;hrst du dich?</h3><fieldset class="col-md-12">
+											    <input type="radio" class="nutritionalform" name="nutritionalform" value="vegetarisch"><p>vegetarisch <span class="glyphicon glyphicon-info-sign" aria-hidden="true" title="Fleisch und Fisch werden beim Generieren des Ernährungsplans nicht berücksichtigt!"></span></p> 
+											    <input type="radio" class="nutritionalform" name="nutritionalform" value="vegan"><p>vegan</p>
+											  </fieldset>
+					</div>
+					<div class="formitem col-md-4">
+						<h3 class="col-md-12 center">Bist du laktoseintolerant?</h3><fieldset class="col-md-12">
+												<input type="radio" class="lactoseintolerant" name="lactoseintolerant" value="ja">
+											    <i class="fa fa-smile-o fa-3x col-md-6 center" aria-hidden="true"></i>
+											    
+											     <input type="radio" class="lactoseintolerant" name="lactoseintolerant" value="nein">
+											    <i class="fa fa-meh-o fa-3x col-md-6 center" aria-hidden="true"></i>
+											    
+											    
+											   
+											  </fieldset>
+						
+				</form>
+			</div>
+		</div>
+	</div>
+	<div class="footer col-md-12"></div>
+</div>
+</body>
+</html>
