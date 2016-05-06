@@ -60,6 +60,10 @@
 						<h3 class="col-md-12">Wie alt bist du?</h3> 
 						<input class="mySlider sliderAge col-md-12" data-slider-id='ex1Slider' type="text" data-slider-min="16" data-slider-max="99" data-slider-step="1" data-slider-value="16"  name="age"/>
 					</div>
+					<div class="formitem col-md-4">
+						<h3 class="col-md-12">Deine E-Mail Adresse?</h3> 
+						<input class="col-md-12"  type="email" name="email" value="Deine E-Mail Adresse..." onfocus="this.select()"/>
+					</div>
 				</form>
 			</div>
 		</div>
@@ -71,7 +75,7 @@
 						<h3 class="col-md-12 center">Lebensmittel, die du nicht magst?</h3> <input type="text" class="col-md-12" name="negativfood"/>
 					</div>
 						<div class="formitem col-md-4">
-						<h3 class="col-md-12 center">Wie ern&auml;hrst du dich?</h3><fieldset class="col-md-12">
+						<h3 class="col-md-12 center">Wie ern&auml;hrst du dich?</h3><fieldset class="col-md-9 col-md-offset-2">
 											    <input type="radio" class="nutritionalform" name="nutritionalform" value="vegetarisch"><p>vegetarisch <span class="glyphicon glyphicon-info-sign" aria-hidden="true" title="Fleisch und Fisch werden beim Generieren des Ernährungsplans nicht berücksichtigt!"></span></p> 
 											    <input type="radio" class="nutritionalform" name="nutritionalform" value="vegan"><p>vegan</p>
 											  </fieldset>
@@ -83,11 +87,27 @@
 											    
 											     <input type="radio" class="lactoseintolerant" name="lactoseintolerant" value="nein">
 											    <i class="fa fa-meh-o fa-3x col-md-6 center" aria-hidden="true"></i>
-											    
-											    
-											   
 											  </fieldset>
-						
+					
+					</div>
+					<div class="formitem col-md-4">
+						<h3 class="col-md-12 center">Was ist dein Ziel?</h3> 
+						<select name="goal" class="col-md-12">
+						  <option value="lose">Abnehmen</option>
+						  <option value="stay">Gewicht halten</option>
+						  <option value="gain">Zunehmen</option>
+						</select>
+					</div>
+						<div class="formitem col-md-4">
+						<h3 class="col-md-12 center">Wie aktiv bist du?</h3>
+						<select name="activity" class="col-md-12">
+						  <option value="lose">Nur Sitzen oder Liegen</option>
+						  <option value="stay">Ausschließlich sitzende Tätigkeit</option>
+						  <option value="gain">Sitzende Tätigkeit (zeitweilig gehend oder stehend)</option>
+						  <option value="gain">Überwiegend gehende oder stehende Tätigkeit</option>
+						  <option value="gain">Körperlich anstrengende berufliche Arbeit</option>
+						</select>
+					</div>	
 				</form>
 			</div>
 		</div>
