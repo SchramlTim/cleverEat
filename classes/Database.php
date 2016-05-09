@@ -1,30 +1,37 @@
 <?php 
-
 class Database{
     private $serverName;
     private $userName;
     private $password;
-    private $dbCon;
-            
-    __consturct($sname,$uname,$pw){
-        this.$serverName = $sname;
-        this.$userName = $uname;
-        this.$password = $pw;
+    private $datatable;
+    private $dbCon;        
+    
+    function __construct($_servername,$_username,$_password,$_datatable){
+        $this->serverName = $_servername;
+        $this->userName = $_username;
+        $this->password = $_password;
+        $this->datatable = $_datatable;      
     }
     
     function connectToDatabase(){
-        if(empty($dbCon)){
-            $dbCon = new mysqli($serverName,$userName,$password);
+        if(empty($this->dbCon)){
+            $this->dbCon = new mysqli($this->serverName,$this->userName,$this->password,$this->datatable);
+             if ($this->dbCon->connect_errno) {
+                die("Verbindung fehlgeschlagen: " . $this->dbCon->connect_error);
+             }                     
         }
     }
     
     function query($queryString){
-        
+        $query = $this->dbCon->query($queryString);             
+        return $query;
     }
     
     function isConnected(){
-        return !empty($dbCon);
+        return !empty($this->dbCon);
     }
+    
+    
     
     function disconnetFromDatabase(){
         if(!empty($dbCon)){
