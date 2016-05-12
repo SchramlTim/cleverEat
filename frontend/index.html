@@ -28,71 +28,69 @@
 <body>
 <div class="wrapper col-md-8 col-md-offset-2">
 	<div class="header col-md-12">
-		<div class="titletext col-md-12 center"><h1>Generiere deinen individuellen ErnÃ¤hrungsplan!</h1></div>
-		<div class="welcometext col-md-12 center"><p>Gebe einfach deine Daten ein und lasse dir einen ErnÃ¤hrungsplan generieren, der deinen persÃ¶nlichen Anforderungen und WÃ¼nschen entspricht.</p></div>
+		<div class="titletext col-md-12 center"><h1>Generiere deinen individuellen Ernährungsplan!</h1></div>
+		<div class="welcometext col-md-12 center"><p>Gebe einfach deine Daten ein und lasse dir einen Ernährungsplan generieren, der deinen persönlichen Anforderungen und Wünschen entspricht.</p></div>
 	</div>
 	<div class="content col-md-12">
 		<div class="personaldata col-md-12"><!--  -->
-			<div class="personaltext col-md-12 center"><h2>Deine persÃ¶nlichen Daten:</h2></div>
+			<div class="personaltext col-md-12 center"><h2>Deine persönlichen Daten:</h2></div>
 			<div class="personalform col-md-12">
-				<form method="post" action="" class="col-md-12 no-padding">
 					<div class="formitem col-md-4">
 						<h3 class="col-md-12 center">Wie hei&szlig;t du?:</h3> 
-						<input type="text" class="col-md-6" name="firstname" value="Dein Vorname..." onfocus="this.select()"/><input type="text" class="col-md-6" name="lastname" value="Dein Nachname..." onfocus="this.select()"/>
+						<input type="text" class="col-md-6" id="firstname" value="Dein Vorname..." onfocus="this.select()"/><input type="text" class="col-md-6" id="lastname" value="Dein Nachname..." onfocus="this.select()"/>
 					</div>
 					<div class="formitem col-md-4">
 						<h3 class="col-md-12 center"> Wie viel wiegst du?:</h3> 
-						<input class="mySlider sliderWeight col-md-12" data-slider-id='ex1Slider' type="text" data-slider-min="30" data-slider-max="300" data-slider-step="1" data-slider-value="80"  name="weight"/>
+						<input class="mySlider sliderWeight col-md-12" data-slider-id='ex1Slider' type="text" data-slider-min="30" data-slider-max="300" data-slider-step="1" data-slider-value="80" id="weight"/>
 					</div>
 					<div class="formitem col-md-4">
 						<h3 class="col-md-12 center">Wie gro&szlig; bist du?:</h3> 
-						<input class="mySlider sliderHeight col-md-12" data-slider-id='ex1Slider' type="text" data-slider-min="50" data-slider-max="250" data-slider-step="1" data-slider-value="160"  name="height"/>
+						<input class="mySlider sliderHeight col-md-12" data-slider-id='ex1Slider' type="text" data-slider-min="50" data-slider-max="250" data-slider-step="1" data-slider-value="160"  id="height"/>
 					</div>
 					<div class="formitem col-md-4">
-						<h3 class="col-md-12 center">Welches Geschlecht hast du?:</h3> <fieldset class="col-md-12">
-												<input type="radio" class="sex" name="m" value="ja">
+						<h3 class="col-md-12 center">Welches Geschlecht hast du?:</h3> <form class="col-md-12" id="sex">
+												<input type="radio" class="sex" name="sex" value="male">
 												<i class="fa fa-male fa-3x col-md-6 center" aria-hidden="true"></i>
-												<input type="radio" class="sex" name="f" value="ja">
+												<input type="radio" class="sex" name="sex" value="female">
 												<i class="fa fa-female fa-3x col-md-6 center" aria-hidden="true"></i>
+											</form>
 						 
 					</div>
 					<div class="formitem col-md-4">
 						<h3 class="col-md-12">Wie alt bist du?</h3> 
-						<input class="mySlider sliderAge col-md-12" data-slider-id='ex1Slider' type="text" data-slider-min="16" data-slider-max="99" data-slider-step="1" data-slider-value="16"  name="age"/>
+						<input class="mySlider sliderAge col-md-12" data-slider-id='ex1Slider' type="text" data-slider-min="16" data-slider-max="99" data-slider-step="1" data-slider-value="16"  id="age"/>
 					</div>
 					<div class="formitem col-md-4">
 						<h3 class="col-md-12">Deine E-Mail Adresse?</h3> 
-						<input class="col-md-12"  type="email" name="email" value="Deine E-Mail Adresse..." onfocus="this.select()"/>
+						<input class="col-md-12"  type="email" id="email" value="Deine@EmailAdresse.de" onfocus="this.select()"/>
 					</div>
-				</form>
 			</div>
 		</div>
 		<div class="nutritiondata col-md-12">
-			<div class="nutritiontext col-md-12 center"><h2>Deine ErnÃ¤hrung:</h2></div>
+			<div class="nutritiontext col-md-12 center"><h2>Deine Ernährung:</h2></div>
 			<div class="nutritionform col-md-12">
-				<form method="post" action="" class="col-md-12 no-padding">
 					<div class="formitem col-md-4">
-						<h3 class="col-md-12 center">Lebensmittel, die du nicht magst?</h3> <input type="text" class="col-md-12" name="negativfood"/>
+						<h3 class="col-md-12 center">Lebensmittel, die du nicht magst?</h3> <input type="text" class="col-md-12" id="negativfood"/>
 					</div>
 						<div class="formitem col-md-4">
-						<h3 class="col-md-12 center">Wie ern&auml;hrst du dich?</h3><fieldset class="col-md-9 col-md-offset-2">
-											    <input type="radio" class="nutritionalform" name="nutritionalform" value="vegetarisch"><p>vegetarisch <span class="glyphicon glyphicon-info-sign" aria-hidden="true" title="Fleisch und Fisch werden beim Generieren des ErnÃ¤hrungsplans nicht berÃ¼cksichtigt!"></span></p> 
+						<h3 class="col-md-12 center">Wie ern&auml;hrst du dich?</h3><form class="col-md-9 col-md-offset-2" id="nutritionalform">
+											    <input type="radio" class="nutritionalform" name="nutritionalform" value="vegetarisch"><p>vegetarisch <span class="glyphicon glyphicon-info-sign" aria-hidden="true" title="Fleisch und Fisch werden beim Generieren des Ernährungsplans nicht berücksichtigt!"></span></p> 
 											    <input type="radio" class="nutritionalform" name="nutritionalform" value="vegan"><p>vegan</p>
-											  </fieldset>
+											  </form>
 					</div>
 					<div class="formitem col-md-4">
-						<h3 class="col-md-12 center">Bist du laktoseintolerant?</h3><fieldset class="col-md-12">
-												<input type="radio" class="lactoseintolerant" name="lactoseintolerant" value="ja">
+						<h3 class="col-md-12 center">Bist du laktoseintolerant?</h3><form class="col-md-12" id="lactoseintolerant">
+												<input type="radio" class="lactoseintolerant" name="lactoseintolerant" value="no">
 											    <i class="fa fa-smile-o fa-3x col-md-6 center" aria-hidden="true"></i>
 											    
-											     <input type="radio" class="lactoseintolerant" name="lactoseintolerant" value="nein">
+											     <input type="radio" class="lactoseintolerant" name="lactoseintolerant" value="yes">
 											    <i class="fa fa-meh-o fa-3x col-md-6 center" aria-hidden="true"></i>
-											  </fieldset>
+											  </form>
 					
 					</div>
 					<div class="formitem col-md-4">
 						<h3 class="col-md-12 center">Was ist dein Ziel?</h3> 
-						<select name="goal" class="col-md-12">
+						<select id="goal" class="col-md-12">
 						  <option value="lose">Abnehmen</option>
 						  <option value="stay">Gewicht halten</option>
 						  <option value="gain">Zunehmen</option>
@@ -100,15 +98,18 @@
 					</div>
 						<div class="formitem col-md-4">
 						<h3 class="col-md-12 center">Wie aktiv bist du?</h3>
-						<select name="activity" class="col-md-12">
-						  <option value="">Nur Sitzen oder Liegen</option>
-						  <option value="">AusschlieÃŸlich sitzende TÃ¤tigkeit</option>
-						  <option value="">Sitzende TÃ¤tigkeit (zeitweilig gehend oder stehend)</option>
-						  <option value="">Ãœberwiegend gehende oder stehende TÃ¤tigkeit</option>
-						  <option value="">KÃ¶rperlich anstrengende berufliche Arbeit</option>
+						<select id="activity" class="col-md-12">
+						  <option value="1.2">Nur Sitzen oder Liegen</option>
+						  <option value="1.4">Ausschließlich sitzende Tätigkeit</option>
+						  <option value="1.6">Sitzende Tätigkeit (zeitweilig gehend oder stehend)</option>
+						  <option value="1.8">Überwiegend gehende oder stehende Tätigkeit</option>
+						  <option value="2">Körperlich anstrengende berufliche Arbeit</option>
 						</select>
+					</div>
+					<div class="formitem col-md-4">
+					<h3 class="col-md-12 center">Alles eingetragen?</h3>
+					<input type="submit" value="Generieren!" class="col-md-12" onclick="sendFrontendData();"/>
 					</div>	
-				</form>
 			</div>
 		</div>
 	</div>
