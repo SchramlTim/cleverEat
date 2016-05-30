@@ -1,6 +1,7 @@
 <?php 
 
 class Person{    
+    private $_planer;
     public $email;
     public $firstName;
     public $lastName;
@@ -10,10 +11,12 @@ class Person{
     public $age;
     public $nutritionalForm;
     public $pal;
-    public $dailyRequirmentEnergy;
+    public $dailyRequirementEnergy;
     public $macroDistribution;
+    public $listOfNegativFood;
     
-    function __construct($_email,$_firstName,$_lastName,$_weight,$_height,$_sex,$_age,$_nutritionalForm,$_pal){
+    function __construct($_planer,$_email,$_firstName,$_lastName,$_weight,$_height,$_sex,$_age,$_nutritionalForm,$_pal,$_listOfNegativFood){
+           $this->planer = $_planer;
            $this->email = $_email;
            $this->firstName = $_firstName;  
            $this->lastName = $_lastName;
@@ -23,7 +26,9 @@ class Person{
            $this->age = $_age;
            $this->nutritionalForm = $_nutritionalForm; 
            $this->pal = $_pal; 
-           $this->dailyRequirementEnergy = $this->calculateDailyRequirementEnergy();
+           $this->dailyRequirementEnergy = $this->calculateDailyRequirementEnergy();   
+           $this->listOfNegativFood = $_listOfNegativFood;
+           $this->macroDistribution = $this->calcMacroDistribution();
     }
     
     private function calculateDailyRequirementEnergy(){
@@ -36,9 +41,8 @@ class Person{
           return $calcDailyRequirmentEnergy;
       }
 
-    function calcMacroDistribution($_dbm){
-        $this->macroDistribution = $_dbm->getMacroDistribution($this);
-        print_r($this->macroDistribution);
+    function calcMacroDistribution(){
+        return $this->planer->getMacroDistribution($this);
     }
     
 }

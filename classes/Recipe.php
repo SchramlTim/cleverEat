@@ -19,14 +19,27 @@ class Recipe{
     
     function calculateRecipeFor($_servings){
         $factor = ($_servings /$this->servings);
+        $this->servings = $_servings;
         $this->calories *= $factor;
         $this->carbs *= $factor;
         $this->fat *= $factor;
         $this->protein *= $factor;
     }
+
+    function calculateRecipeForEnergy($_energy){
+        $factor = round($_energy / $this->calories,1);
+        $this->calories *= $factor;
+        $this->carbs *= $factor;
+        $this->fat *= $factor;
+        $this->protein *= $factor;
+        $servings = round($this->servings * $factor,1);
+        $this->servings = $servings;
+        return $servings;
+
+    }
     
     function getMacro(){
-        $macro = new array();
+        $macro = array();
         $macro['carb'] = $this->carbs;
         $macro['fat'] = $this->fat;
         $macro['protein'] = $this->protein;
