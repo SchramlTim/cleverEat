@@ -3,7 +3,7 @@
 class SelectorUnit{
     private $planer;
     private $calculator;
-    private $range = 0.1;
+    private $range = 0.3;
         
     function __construct($_planerInstance){
        $this->planer = $_planerInstance;   
@@ -31,7 +31,7 @@ class SelectorUnit{
 
         if(!$recipeFound){
             for($i = 0; $i < count($_recipeList); $i++){
-                $testRecipe = $_recipeList[$i];
+                $testRecipe = clone $_recipeList[$i];
                 if($this->isInRange($_energy,$testRecipe->calories) && $this->isInRange($_macroDistribution['carb'],$testRecipe->carbs) && $this->isInRange($_macroDistribution['fat'],$testRecipe->fat) && $this->isInRange($_macroDistribution['protein'],$testRecipe->protein)){
                     print "<br/>";
                     print "Alles Passt";
@@ -44,10 +44,15 @@ class SelectorUnit{
                         if($this->isInRange($_energy,$testRecipe->calories) && $this->isInRange($_macroDistribution['carb'],$testRecipe->carbs) && $this->isInRange($_macroDistribution['fat'],$testRecipe->fat) && $this->isInRange($_macroDistribution['protein'],$testRecipe->protein)) {
                             print "<br/>";
                             print "Alles Passt mit Runterrechnen";
+                            print "<br/>";
+                            print "Rezept: ";
+                            print_r($testRecipe);
                             $currentFittestRecipe = $testRecipe;
                             $recipeFound = true;
                             break;
                         }
+                    }else{
+                        $output = 0;
                     }
                 }
             }
@@ -55,7 +60,7 @@ class SelectorUnit{
         
         if(!$recipeFound){
             for($i = 0; $i < count($_recipeList); $i++){
-                $testRecipe = $_recipeList[$i];
+                $testRecipe = clone $_recipeList[$i];
                 if($this->isInRange($_energy,$testRecipe->calories) && $this->isInRange($_macroDistribution['fat'],$testRecipe->fat) && $this->isInRange($_macroDistribution['protein'],$testRecipe->protein)){
                     print "<br/>";
                     print "Kalorien, Fat und Eiweiß passt";
@@ -65,13 +70,18 @@ class SelectorUnit{
                 }else{
                     $output = $testRecipe->calculateRecipeForEnergy($_energy);
                     if($output <= 2 & $output >= 0.5){
-                        if($this->isInRange($_energy,$testRecipe->calories) && $this->isInRange($_macroDistribution['carb'],$testRecipe->carbs) && $this->isInRange($_macroDistribution['fat'],$testRecipe->fat) && $this->isInRange($_macroDistribution['protein'],$testRecipe->protein)) {
+                        if($this->isInRange($_energy,$testRecipe->calories) && $this->isInRange($_macroDistribution['fat'],$testRecipe->fat) && $this->isInRange($_macroDistribution['protein'],$testRecipe->protein)) {
                             print "<br/>";
-                            print "Alles Passt mit Runterrechnen";
+                            print "Kalorien, Fat und Eiweiß passt mit Runterrechnen";
+                            print "<br/>";
+                            print "Rezept: ";
+                            print_r($testRecipe);
                             $currentFittestRecipe = $testRecipe;
                             $recipeFound = true;
                             break;
                         }
+                    }else{
+                        $output = 0;
                     }
                 }
             }
@@ -79,7 +89,7 @@ class SelectorUnit{
         
         if(!$recipeFound){
             for($i = 0; $i < count($_recipeList); $i++){
-                $testRecipe = $_recipeList[$i];
+                $testRecipe = clone $_recipeList[$i];
                 if($this->isInRange($_energy,$testRecipe->calories) && $this->isInRange($_macroDistribution['protein'],$testRecipe->protein)){
                     print "<br/>";
                     print "Kalorien und Eiweiß passt";
@@ -89,13 +99,18 @@ class SelectorUnit{
                 }else{
                     $output = $testRecipe->calculateRecipeForEnergy($_energy);
                     if($output <= 2 & $output >= 0.5){
-                        if($this->isInRange($_energy,$testRecipe->calories) && $this->isInRange($_macroDistribution['carb'],$testRecipe->carbs) && $this->isInRange($_macroDistribution['fat'],$testRecipe->fat) && $this->isInRange($_macroDistribution['protein'],$testRecipe->protein)) {
+                        if($this->isInRange($_energy,$testRecipe->calories) && $this->isInRange($_macroDistribution['protein'],$testRecipe->protein)) {
                             print "<br/>";
-                            print "Alles Passt mit Runterrechnen";
+                            print "Kalorien und Eiweiß passt mit Runterrechnen";
+                            print "<br/>";
+                            print "Rezept: ";
+                            print_r($testRecipe);
                             $currentFittestRecipe = $testRecipe;
                             $recipeFound = true;
                             break;
                         }
+                    }else{
+                        $output = 0;
                     }
                 }
             }
@@ -103,7 +118,7 @@ class SelectorUnit{
         
         if(!$recipeFound){
             for($i = 0; $i < count($_recipeList); $i++){
-                $testRecipe = $_recipeList[$i];
+                $testRecipe = clone $_recipeList[$i];
                 if($this->isInRange($_energy,$testRecipe->calories)){
                     print "<br/>";
                     print "Nur Kalorien passt";
@@ -113,13 +128,18 @@ class SelectorUnit{
                 }else{
                     $output = $testRecipe->calculateRecipeForEnergy($_energy);
                     if($output <= 2 & $output >= 0.5){
-                        if($this->isInRange($_energy,$testRecipe->calories) && $this->isInRange($_macroDistribution['carb'],$testRecipe->carbs) && $this->isInRange($_macroDistribution['fat'],$testRecipe->fat) && $this->isInRange($_macroDistribution['protein'],$testRecipe->protein)) {
+                        if($this->isInRange($_energy,$testRecipe->calories)) {
                             print "<br/>";
-                            print "Alles Passt mit Runterrechnen";
+                            print "Nur Kalorien passt mit Runterrechnen";
+                            print "<br/>";
+                            print "Rezept: ";
+                            print_r($testRecipe);
                             $currentFittestRecipe = $testRecipe;
                             $recipeFound = true;
                             break;
                         }
+                    }else{
+                        $output = 0;
                     }
                 }
             }

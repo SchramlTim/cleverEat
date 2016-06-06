@@ -22,7 +22,6 @@ class Meal
         $this->recipe = $_recipe;
     }
 
-
     /**
      * @return mixed
      */
@@ -45,6 +44,14 @@ class Meal
     public function getRecipe()
     {
         return $this->recipe;
+    }
+
+    public function updateEnergy($_energy){
+        $this->necessaryEnergy = $_energy;
+    }
+
+    public function updateMacros($_macros){
+        $this->macros = $_macros;
     }
 
     /**

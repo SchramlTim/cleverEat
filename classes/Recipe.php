@@ -35,7 +35,6 @@ class Recipe{
         $servings = round($this->servings * $factor,1);
         $this->servings = $servings;
         return $servings;
-
     }
     
     function getMacro(){

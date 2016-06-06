@@ -35,7 +35,7 @@ class Planer{
             $this->mealScheduler->addRecipeToDay($fitRecipe);
         }while($this->mealScheduler->selectNextMeal());
         print "<br/>";
-        print_r($this->mealScheduler);
+        print_r($this->mealScheduler->getAverageEnergy());
     }
     
     
@@ -43,7 +43,9 @@ class Planer{
 
 spl_autoload_register(function( $className ){
 
-    $filepath = $_SERVER['DOCUMENT_ROOT'] . '/cleverEat/classes/' . $className. '.php';
+    //$filepath = $_SERVER['DOCUMENT_ROOT'] . '/cleverEat/classes/' . $className. '.php';
+    $filepath = 'D:\Code\xampp\htdocs\cleverEat\classes/' . $className. '.php';
+    
 
     if ( !file_exists( $filepath ) )
     {

@@ -34,6 +34,7 @@ class MealScheduler
 
     function selectNextMeal(){
         $hasNext = true;
+        //$this->dayManager[$this->currentDayNumber]->updateNutritionValues();
         if(!$this->dayManager[$this->currentDayNumber]->selectNextMeal()){
             if($this->hasNextDay()){
                 $this->currentDayNumber++;
@@ -66,5 +67,19 @@ class MealScheduler
             }
         }
         return $usedRecipe;
+    }
+
+    function getAverageEnergy(){
+        $energy = 0;
+        $countedDays = 0;
+        for($i = 0; $i < count($this->dayManager[$i]); $i++){
+            $wholeEnergy = $this->dayManager[$i]->getWholeEnergy();
+            if($wholeEnergy > 0){
+                $countedDays++;
+                $energy += $wholeEnergy;
+                $wholeEnergy = 0;
+            }
+        }
+        return $energy / count($this->dayManager);
     }
 }
