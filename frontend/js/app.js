@@ -19,6 +19,13 @@ function setBackgroundOnSections(){
 			  $(this).css({'background':'#f5f5f5'});
 		  }
 	});
+	$('.planform .formitem').each(function( index ) {
+		  if((index%2) != 0){
+			  $(this).css({'background':'#e5e5e5'});
+		  }else{
+			  $(this).css({'background':'#f5f5f5'});
+		  }
+	});
 }
 function sendFrontendData(){
 	firstname = $("#firstname").val(); 
@@ -70,11 +77,24 @@ function sendFrontendData(){
 	});
 	console.log('DFGJKSADLJFAS');
 }
+
 $( document ).ready(function() {
 	changeHeightOfFormitem();
 	
 	setBackgroundOnSections();
-	
+	$("#meal").on("slideStop", function(slideEvt) {
+		//console.log('slider-----');
+		//$(".plansetting").text(slideEvt.value);
+		num = slideEvt.value;
+		//console.log(num);
+		$('.plansetting').html('<table>');
+		for (i=0; i<num; i++){
+			//console.log('for:'+i);
+			$('.plansetting').append('<tr><td><select id="mealtype" class="col-md-12"><option value="breakfast">Fr&uuml;hst&uuml;ck</option><option value="lunch">Mittagsessen</option><option value="dinner">Abendessen</option><option value="snack">Snack</option></select></td></tr>');
+			
+		}
+		$('.plansetting').append('</table>');
+	});
 	$('.sliderWeight').slider({
 		tooltip: 'always',
 		formatter: function(value) {
@@ -91,6 +111,12 @@ $( document ).ready(function() {
 		tooltip: 'always',
 		formatter: function(value) {
 			return value + ' Jahre';
+		}
+	});
+	$('.sliderMeal').slider({
+		tooltip: 'always',
+		formatter: function(value) {
+			return value + ' Mahlzeiten';
 		}
 	});
 	
