@@ -105,7 +105,7 @@ class Day
     function getPlanedRecipes(){
         $planedRecipes = array();
         for($i = 0; $i < count($this->mealManager); $i++){
-            $planedRecipes[$this->mealManager[$i]->getMealtime()] = $this->mealManager[$i]->getPlanedRecipe();
+            $planedRecipes[] = $this->mealManager[$i]->getPlanedRecipe();
         }
         return $planedRecipes;
     }

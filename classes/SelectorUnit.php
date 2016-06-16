@@ -12,18 +12,6 @@ class SelectorUnit{
     function getFittestRecipe($_recipeList,$_energy,$_macroDistribution){
         $currentFittestRecipe = null;  
         $recipeFound = false;
-
-        print "<br/>";
-        print $_energy;
-        print "<br/>";
-        print "Carbs:".$_macroDistribution[Macro::Carbohydrate];
-        print "<br/>";
-        print "Fat:".$_macroDistribution[Macro::Fat];
-        print "<br/>";
-        print "Protein:".$_macroDistribution[Macro::Protein];
-        print "<br/>";
-        print "Rezepte:";
-        print_r($_recipeList);
         
         for($j = 0; $j < count($_recipeList); $j++){
             $_recipeList[$j]->calculateRecipeFor(1);  
@@ -33,8 +21,7 @@ class SelectorUnit{
             for($i = 0; $i < count($_recipeList); $i++){
                 $testRecipe = clone $_recipeList[$i];
                 if($this->isInRange($_energy,$testRecipe->calories) && $this->isInRange($_macroDistribution['carb'],$testRecipe->carbs) && $this->isInRange($_macroDistribution['fat'],$testRecipe->fat) && $this->isInRange($_macroDistribution['protein'],$testRecipe->protein)){
-                    print "<br/>";
-                    print "Alles Passt";
+                    
                     $currentFittestRecipe = $testRecipe;
                     $recipeFound = true;
                     break;
@@ -42,11 +29,8 @@ class SelectorUnit{
                     $output = $testRecipe->calculateRecipeForEnergy($_energy);
                     if($output <= 2 & $output >= 0.5){
                         if($this->isInRange($_energy,$testRecipe->calories) && $this->isInRange($_macroDistribution['carb'],$testRecipe->carbs) && $this->isInRange($_macroDistribution['fat'],$testRecipe->fat) && $this->isInRange($_macroDistribution['protein'],$testRecipe->protein)) {
-                            print "<br/>";
-                            print "Alles Passt mit Runterrechnen";
-                            print "<br/>";
-                            print "Rezept: ";
-                            print_r($testRecipe);
+                           
+                            
                             $currentFittestRecipe = $testRecipe;
                             $recipeFound = true;
                             break;
@@ -62,8 +46,7 @@ class SelectorUnit{
             for($i = 0; $i < count($_recipeList); $i++){
                 $testRecipe = clone $_recipeList[$i];
                 if($this->isInRange($_energy,$testRecipe->calories) && $this->isInRange($_macroDistribution['fat'],$testRecipe->fat) && $this->isInRange($_macroDistribution['protein'],$testRecipe->protein)){
-                    print "<br/>";
-                    print "Kalorien, Fat und Eiweiß passt";
+                    
                     $currentFittestRecipe = $testRecipe;
                     $recipeFound = true;
                     break;
@@ -71,11 +54,8 @@ class SelectorUnit{
                     $output = $testRecipe->calculateRecipeForEnergy($_energy);
                     if($output <= 2 & $output >= 0.5){
                         if($this->isInRange($_energy,$testRecipe->calories) && $this->isInRange($_macroDistribution['fat'],$testRecipe->fat) && $this->isInRange($_macroDistribution['protein'],$testRecipe->protein)) {
-                            print "<br/>";
-                            print "Kalorien, Fat und Eiweiß passt mit Runterrechnen";
-                            print "<br/>";
-                            print "Rezept: ";
-                            print_r($testRecipe);
+                            
+                            
                             $currentFittestRecipe = $testRecipe;
                             $recipeFound = true;
                             break;
@@ -91,8 +71,7 @@ class SelectorUnit{
             for($i = 0; $i < count($_recipeList); $i++){
                 $testRecipe = clone $_recipeList[$i];
                 if($this->isInRange($_energy,$testRecipe->calories) && $this->isInRange($_macroDistribution['protein'],$testRecipe->protein)){
-                    print "<br/>";
-                    print "Kalorien und Eiweiß passt";
+                    
                     $currentFittestRecipe = $testRecipe;
                     $recipeFound = true;
                     break;
@@ -100,11 +79,8 @@ class SelectorUnit{
                     $output = $testRecipe->calculateRecipeForEnergy($_energy);
                     if($output <= 2 & $output >= 0.5){
                         if($this->isInRange($_energy,$testRecipe->calories) && $this->isInRange($_macroDistribution['protein'],$testRecipe->protein)) {
-                            print "<br/>";
-                            print "Kalorien und Eiweiß passt mit Runterrechnen";
-                            print "<br/>";
-                            print "Rezept: ";
-                            print_r($testRecipe);
+                            
+                            
                             $currentFittestRecipe = $testRecipe;
                             $recipeFound = true;
                             break;
@@ -120,8 +96,7 @@ class SelectorUnit{
             for($i = 0; $i < count($_recipeList); $i++){
                 $testRecipe = clone $_recipeList[$i];
                 if($this->isInRange($_energy,$testRecipe->calories)){
-                    print "<br/>";
-                    print "Nur Kalorien passt";
+                    
                     $currentFittestRecipe = $testRecipe;
                     $recipeFound = true;
                     break;
@@ -129,11 +104,7 @@ class SelectorUnit{
                     $output = $testRecipe->calculateRecipeForEnergy($_energy);
                     if($output <= 2 & $output >= 0.5){
                         if($this->isInRange($_energy,$testRecipe->calories)) {
-                            print "<br/>";
-                            print "Nur Kalorien passt mit Runterrechnen";
-                            print "<br/>";
-                            print "Rezept: ";
-                            print_r($testRecipe);
+                            
                             $currentFittestRecipe = $testRecipe;
                             $recipeFound = true;
                             break;
@@ -144,9 +115,7 @@ class SelectorUnit{
                 }
             }
         }
-        print "<br/>";
-        print_r($currentFittestRecipe);
-        print "<br/>";
+        
         return $currentFittestRecipe;
     }
     

@@ -71,8 +71,13 @@ function sendFrontendData(){
 				
 		},
 		success: function(data){
-			console.log('successful!');
-			$('.content').html(data);
+			var receivedData = JSON.parse(data);
+			document.getElementsByClassName("content")[0].innerHTML = "";
+			for(var i = 0; i < receivedData.length; i++){
+				for(var j = 0; j < receivedData[i].length; j++) {
+					document.getElementsByClassName("content")[0].innerHTML += "<p>"+receivedData[i][j].name+"</p>";
+				}
+			}
 		}
 	});
 	console.log('DFGJKSADLJFAS');

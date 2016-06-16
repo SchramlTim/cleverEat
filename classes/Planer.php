@@ -15,7 +15,7 @@ class Planer{
         $this->selector = new SelectorUnit($this);
         $this->person = new Person($this,$_email,$_firstName,$_lastName,$_weight,$_height,$_sex,$_age,$_nutritionalForm,$_pal,$_listOfNegativFood);
         $this->mealScheduler = new MealScheduler(3, 1, $this->person->dailyRequirementEnergy,$this->person->macroDistribution);
-//        $this->databaseManager->registerPerson($this->person)
+        $this->databaseManager->registerPerson($this->person);
     }
     
     function getPersonalInformation(){
@@ -28,8 +28,6 @@ class Planer{
     
     function startGeneratingPlan(){
         do {
-            print "<br/>";
-            print $this->mealScheduler->getCurrentMealtime();
             $mealtimeRecipeList = $this->databaseManager->getRecipes($this->mealScheduler->getCurrentMealtime(),$this->mealScheduler->getUsedRecipeNames());
             $fitRecipe = $this->selector->getFittestRecipe($mealtimeRecipeList,$this->mealScheduler->getCurrentNecessaryEnergy(),$this->mealScheduler->getMacroDistribution());
             $this->mealScheduler->addRecipeToDay($fitRecipe);

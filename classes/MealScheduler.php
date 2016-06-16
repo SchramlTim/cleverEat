@@ -86,7 +86,7 @@ class MealScheduler
     function getPlanedRecipes(){
         $planedDays = array();
         for($i = 0; $i < count($this->dayManager); $i++){
-            $planedDays['Day'.($i+1)] = $this->dayManager[$i]->getPlanedRecipes();
+            $planedDays[] = $this->dayManager[$i]->getPlanedRecipes();
         }
         return $planedDays;
     }
