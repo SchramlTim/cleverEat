@@ -82,4 +82,12 @@ class MealScheduler
         }
         return $energy / count($this->dayManager);
     }
+
+    function getPlanedRecipes(){
+        $planedDays = array();
+        for($i = 0; $i < count($this->dayManager); $i++){
+            $planedDays['Day'.($i+1)] = $this->dayManager[$i]->getPlanedRecipes();
+        }
+        return $planedDays;
+    }
 }

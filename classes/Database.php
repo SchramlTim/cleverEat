@@ -18,7 +18,8 @@ class Database{
             $this->dbCon = new mysqli($this->serverName,$this->userName,$this->password,$this->datatable);
              if ($this->dbCon->connect_errno) {
                 die("Verbindung fehlgeschlagen: " . $this->dbCon->connect_error);
-             }                     
+             }
+            $this->dbCon->query('SET CHARACTER SET utf8');
         }
     }
     

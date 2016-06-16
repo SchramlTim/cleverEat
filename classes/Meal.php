@@ -62,5 +62,18 @@ class Meal
         return $this->macros;
     }
 
+    function getPlanedRecipe(){
+        $recipeInformations = array();
+        if($this->recipe != null){
+            $recipeInformations['name'] = $this->recipe->name;
+            $recipeInformations['mealtime'] = $this->mealtime;
+            $recipeInformations['calories'] = $this->recipe->calories;
+            $recipeInformations['carbs'] = $this->recipe->carbs;
+            $recipeInformations['fat'] = $this->recipe->fat;
+            $recipeInformations['protein'] = $this->recipe->protein;
+        }
+        return $recipeInformations;
+    }
+
     
 }

@@ -34,8 +34,7 @@ class Planer{
             $fitRecipe = $this->selector->getFittestRecipe($mealtimeRecipeList,$this->mealScheduler->getCurrentNecessaryEnergy(),$this->mealScheduler->getMacroDistribution());
             $this->mealScheduler->addRecipeToDay($fitRecipe);
         }while($this->mealScheduler->selectNextMeal());
-        print "<br/>";
-        print_r($this->mealScheduler->getAverageEnergy());
+        return $this->mealScheduler->getPlanedRecipes();
     }
     
     

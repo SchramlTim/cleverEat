@@ -102,6 +102,14 @@ class Day
         return $energy;
     }
 
+    function getPlanedRecipes(){
+        $planedRecipes = array();
+        for($i = 0; $i < count($this->mealManager); $i++){
+            $planedRecipes[$this->mealManager[$i]->getMealtime()] = $this->mealManager[$i]->getPlanedRecipe();
+        }
+        return $planedRecipes;
+    }
+
     function updateNutritionValues(){
         $leavingEnergy = $this->energy;
         $leavingCarbs = $this->macroDistribution[Macro::Carbohydrate];
