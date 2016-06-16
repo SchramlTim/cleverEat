@@ -82,7 +82,7 @@ $( document ).ready(function() {
 	changeHeightOfFormitem();
 	
 	setBackgroundOnSections();
-	$("#meal").on("slideStop", function(slideEvt) {
+	/*$("#meal").on("slideStop", function(slideEvt) {
 		//console.log('slider-----');
 		//$(".plansetting").text(slideEvt.value);
 		num = slideEvt.value;
@@ -94,7 +94,7 @@ $( document ).ready(function() {
 			
 		}
 		$('.plansetting').append('</table>');
-	});
+	});*/
 	$('.sliderWeight').slider({
 		tooltip: 'always',
 		formatter: function(value) {
