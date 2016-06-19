@@ -40,7 +40,7 @@ function sendFrontendData(){
 	radio_buttons = $("input[name='nutritionalform']");
 	if( radio_buttons.filter(':checked').length == 0){
 		console.log('nicht checked');
-		nutritionalform = 'keine';
+		nutritionalform = 'dge';
 	} else {
 	  nutritionalform = radio_buttons.val();
 	}
@@ -71,13 +71,66 @@ function sendFrontendData(){
 				
 		},
 		success: function(data){
+			//console.log(data);
 			var receivedData = JSON.parse(data);
-			document.getElementsByClassName("content")[0].innerHTML = "";
+			$('.header').css('display', 'none');
+			$('.header2').css('display', 'block');
+			$('.mealplaner').css('display', 'block');
+			$('.personaldata').css('display', 'none');
+			$('.nutritiondata').css('display', 'none');
+			$('.wrapper').removeClass('col-md-8 col-md-offset-2');
+			$('.wrapper').addClass('col-md-12');
+			$('body').css('background','#a6ffa6')
 			for(var i = 0; i < receivedData.length; i++){
+				if(i==0){
+					$(".mealplaner").append("<div class='dayitem"+i+" dayitem light col-md-1'><div class='day'><p>Montag</p></div>");
+				}
+				else if(i==1){
+					$(".mealplaner").append("<div class='dayitem"+i+" dayitem dark col-md-1'><div class='day'><p>Dienstag</p></div>");
+				}
+				else if(i==2){
+					$(".mealplaner").append("<div class='dayitem"+i+" dayitem light col-md-1'><div class='day'><p>Mittwoch</p></div>");
+				}
+				else if(i==3){
+					$(".mealplaner").append("<div class='dayitem"+i+" dayitem dark col-md-1'><div class='day'><p>Donnerstag</p></div>");
+				}
+				else if(i==4){
+					$(".mealplaner").append("<div class='dayitem"+i+" dayitem light col-md-1'><div class='day'><p>Freitag</p></div>");
+				}
+				else if(i==5){
+					$(".mealplaner").append("<div class='dayitem"+i+" dayitem dark col-md-1'><div class='day'><p>Samstag</p></div>");
+				}
+				else if(i==6){
+					$(".mealplaner").append("<div class='dayitem"+i+" dayitem light col-md-1'><div class='day'><p>Sonntag</p></div>");
+				}
 				for(var j = 0; j < receivedData[i].length; j++) {
-					document.getElementsByClassName("content")[0].innerHTML += "<p>"+receivedData[i][j].name+"</p>";
+					if(i==0){
+						$(".dayitem0").append("<div class='mealitem'><p>"+receivedData[i][j].name+"</p></div>");
+					}
+					else if(i==1){
+						$(".dayitem1").append("<div class='mealitem'><p>"+receivedData[i][j].name+"</p></div>");
+					}
+					else if(i==2){
+						$(".dayitem2").append("<div class='mealitem'><p>"+receivedData[i][j].name+"</p></div>");
+					}
+					else if(i==3){
+						$(".dayitem3").append("<div class='mealitem'><p>"+receivedData[i][j].name+"</p></div>");
+					}
+					else if(i==4){
+						$(".dayitem4").append("<div class='mealitem'><p>"+receivedData[i][j].name+"</p></div>");
+					}
+					else if(i==5){
+						$(".dayitem5").append("<div class='mealitem'><p>"+receivedData[i][j].name+"</p></div>");
+					}
+					else if(i==6){
+						$(".dayitem6").append("<div class='mealitem'><p>"+receivedData[i][j].name+"</p></div>");
+					}
+				}
+				if((i==0)|(i==1)|(i==2)|(i==3)|(i==4)|(i==5)|(i==6)){
+					$(".mealplaner").append("</div>");
 				}
 			}
+			$('.mealplaner').prepend('<div class="dayitem col-md-1 col-md-offset-2"><div class="day mealtype">&nbsp;</div><div class="mealtype mealitem"><p>Fr&uuml;hst&uuml;ck</p></div><div class="mealtype mealitem"><p>Mittagsessen</p></div><div class="mealtype mealitem"><p>Abendessen</p></div><div class="mealtype mealitem"><p>Snack</p></div></div>');
 		}
 	});
 	console.log('DFGJKSADLJFAS');
